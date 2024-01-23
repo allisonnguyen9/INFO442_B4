@@ -3,6 +3,22 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 
+// Firebase
+import { initializeApp } from "firebase/app";
+
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyDLPY1dmLTbhzf-5OWme7J4uWSsIgzCW7M",
+  authDomain: "campuscraves-d369e.firebaseapp.com",
+  projectId: "campuscraves-d369e",
+  storageBucket: "campuscraves-d369e.appspot.com",
+  messagingSenderId: "402361959840",
+  appId: "1:402361959840:web:86f226d5315893e46210c5"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig)
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
@@ -10,7 +26,4 @@ root.render(
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
