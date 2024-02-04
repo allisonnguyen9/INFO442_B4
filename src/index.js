@@ -1,7 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import 'bootstrap/dist/css/bootstrap.css';
+import App from './components/App.js';
+import './components/index.css';
+import SAMPLE_Food from './data/food.json';
+
 
 // Firebase
 import { initializeApp } from "firebase/app";
@@ -22,8 +25,6 @@ const app = initializeApp(firebaseConfig)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App furni={SAMPLE_Food}/>
   </React.StrictMode>
 );
-
-

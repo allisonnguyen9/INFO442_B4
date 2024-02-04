@@ -1,0 +1,12 @@
+[
+    {"name": "Canned Vegetable Mix", "type": "Canned Foods", "description": "Assorted vegetables in cans.", "location": "Pine Street", "image": "img/vegetable_mix.jpg"},
+    {"name": "Fresh Apples", "type": "Produce", "description": "Crisp and juicy apples.", "location": "Cherry Street", "image": "img/fresh_apples.jpg"},
+    {"name": "Dairy Assortment", "type": "Dairy", "description": "Variety of dairy products.", "location": "Maple Street", "image": "img/dairy_assortment.jpg"},
+    {"name": "Perishable Meal Kit", "type": "Perishables", "description": "Complete meal kit with fresh ingredients.", "location": "Oak Street", "image": "img/meal_kit.jpg"},
+    {"name": "Canned Soup Collection", "type": "Canned Foods", "description": "Various canned soups for a quick meal.", "location": "Elm Street", "image": "img/soup_collection.jpg"},
+    {"name": "Organic Kale Bunch", "type": "Produce", "description": "Fresh and organic kale bunch.", "location": "Cedar Street", "image": "img/organic_kale.jpg"},
+    {"name": "Cheese Selection", "type": "Dairy", "description": "Assorted cheeses for snacking.", "location": "Birch Street", "image": "img/cheese_selection.jpg"},
+    {"name": "Fresh Salmon Fillets", "type": "Perishables", "description": "High-quality fresh salmon fillets.", "location": "Fir Street", "image": "img/salmon_fillets.jpg"}
+]
+
+  
