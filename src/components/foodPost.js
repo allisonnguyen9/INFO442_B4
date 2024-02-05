@@ -13,7 +13,7 @@ function ItemCard(props) {
                 <h2 className="card-title"> {props.foodData.name}</h2>
                 <h3 className="text-muted"> {props.foodData.location}</h3>
                 <p className="card-text"> {props.foodData.description}</p>
-                <a href="#" className="btn btn-dark">Claim It!</a>
+                <a href="#" className="btn btn-dark blue-btn">Claim It!</a>
               </div>
             </div>
           </div>
@@ -26,7 +26,7 @@ function ItemCard(props) {
 function ItemList(props) {
     return (
         <div className="row">
-            {props.food.map((item) => (
+            {props.snackSwap.map((item) => (
                 <ItemCard key={item.name} foodData={item} /> //claim={props.claim} add when use state
          ))}
         </div>

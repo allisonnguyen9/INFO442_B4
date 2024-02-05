@@ -10,7 +10,7 @@ function Homepage (props) {
       <main>
         <div className='container'>
           <div className='row'>
-            <ItemList furni={props.food}></ItemList>
+            <ItemList snackSwap={props.snackSwap}></ItemList>
           </div>
         </div>
       </main>

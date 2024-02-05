@@ -25,6 +25,6 @@ const app = initializeApp(firebaseConfig)
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App furni={SAMPLE_Food}/>
+    <App snackSwap={SAMPLE_Food}/>
   </React.StrictMode>
 );
