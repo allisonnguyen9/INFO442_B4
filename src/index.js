@@ -4,7 +4,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import App from './components/App.js';
 import './components/index.css';
 import { BrowserRouter } from 'react-router-dom';
-import SAMPLE_Food from './data/food.json';
+// import SAMPLE_Food from './data/food.json';
 
 
 // Firebase

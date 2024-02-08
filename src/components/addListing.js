@@ -1,5 +1,5 @@
-import React,{ useState, useEffect } from 'react';
-import { getDatabase, ref, set as firebaseSet, onValue, push as firebasePush, remove } from 'firebase/database';
+import React,{ useState } from 'react';
+import { getDatabase, ref, push as firebasePush } from 'firebase/database';
 import { Footer } from './footer.js';
 
 function AddListing(props) {
@@ -16,7 +16,7 @@ function AddListing(props) {
     // Write data into Firebase
     function writeData(path, name, descr, quant, location, category) { //imgURL 
         let dataPath = "";
-        if(path == "claimed") {
+        if(path === "claimed") {
             dataPath = "claimed/";
         }
         else {

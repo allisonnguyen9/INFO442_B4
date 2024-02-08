@@ -9,7 +9,7 @@ function ItemCard(props) {
             <div className="row">
               <div className="col col-sm-auto col-xl-12">
                 {/* <img src={props.foodData.image} className="card-img pb-3" alt={props.foodData.name}/> */}
-                <img src="img/salmon_fillets.jpg" className="card-img pb-3" alt="exmaple image"/> 
+                <img src="img/salmon_fillets.jpg" className="card-img pb-3" alt="exmaple"/> 
               </div>
               <div className="col-sm">
                 <h2 className="card-title"> {props.foodData.name}</h2>
