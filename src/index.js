@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import 'bootstrap/dist/css/bootstrap.css';
 import App from './components/App.js';
 import './components/index.css';
+import { BrowserRouter } from 'react-router-dom';
 import SAMPLE_Food from './data/food.json';
 
 
@@ -24,7 +25,10 @@ const app = initializeApp(firebaseConfig)
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App snackSwap={SAMPLE_Food}/>
-  </React.StrictMode>
+  // <React.StrictMode>
+  //   <App snackSwap={SAMPLE_Food}/>
+  // </React.StrictMode>
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
 );

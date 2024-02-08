@@ -306,6 +306,77 @@ footer a:hover, footer a:focus {
     font-weight: bold;
   }
 
+/********Homepage***********/
+.btn-container {
+    position: relative;
+}
+
+#add-itm-text {
+    text-decoration: none;
+    font-size: 1.5em;
+    color: white;
+}
+
+#add-item-btn {
+    right: 2em;
+    bottom: 2em;
+    position: fixed;
+    background-color: #FDB515;
+    border: none;
+    border-color: none;
+}
+
+
+
+/********Add New Listing***********/
+/* .survey-label {
+    padding-top: 10em;
+} */
+
+.addItem-container {
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+#input-container {
+    margin-top: 1em;
+}
+
+.input-labels {
+    padding-right: 1em;
+    padding-top: .5em;
+    font-weight: 600;
+}
+
+.categories {
+    margin-left: 1em;
+}
+
+#new-item-submit {
+    background-color: #BFA2DB;
+    border-color: lightslategray;
+    margin: 2em;
+}
+
+#new-item-submit-another {
+    background-color: #5A4B6E;
+    border-color: lightslategray;
+    margin: 2em;
+}
+
+#new-item-submit-another:hover, #new-item-submit:hover {
+    box-shadow: 0 5px 8px rgba(0,0,0,0.15);
+}
+
+.food-footer {
+    background-image: url('../../public/img/food-footer.png');
+    height: 200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /*******Media Queries**********/
 
 @media (min-width: 450px) {

@@ -2,8 +2,11 @@
 
 import React from 'react';
 import ReactDOM from "react-dom/client";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import Homepage from './homePage.js';
 import './index.css';
+
+import { AddListing } from './addListing.js';
 
 
 function App(props) {
@@ -12,9 +15,17 @@ function App(props) {
         <header className="App-header">
           <h1 className="App-title">SnackSwap</h1>
         </header>
-        <Homepage snackSwap={props.snackSwap}></Homepage>
+        {/* <Homepage />  */}
+        {/* <AddListing /> */}
 
+      {/* For routing  */}
+        <Routes> 
+          <Route path="home" element={<Homepage />}/> 
+          <Route path="addListing" element={<AddListing />}/>
+          <Route path="*" element={<Navigate to="/home" />}/>
+        </Routes>
       </div>
+         
     );
 }
 
