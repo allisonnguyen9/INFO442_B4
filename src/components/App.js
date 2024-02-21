@@ -10,6 +10,7 @@ import { AddListing } from './addListing.js';
 import { Navbar } from './NavBar';
 import { Login } from './Login';
 import { SignUp } from './Signup';
+import Claim from './Claim';
 
 function App(props) {
     return (
@@ -27,6 +28,7 @@ function App(props) {
           <Route path="addListing" element={<AddListing />}/>
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/claim" element={<Claim />} />
           <Route path="*" element={<Navigate to="/home" />}/>
         </Routes>
       </div>
