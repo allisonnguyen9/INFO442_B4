@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 function Notification() {
   const [isVisible, setIsVisible] = useState(true);
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const handleNotificationClick = () => {
+    setIsVisible(false);
+  };
 
   return (
     <>
-      {isVisible && <div className="notification-overlay"><div className="notification">Item claimed successfully!</div></div>}
+      {isVisible && (
+        <div className="notification-overlay" onClick={handleNotificationClick}>
+          <div className="notification">
+            <p>Item claimed successfully!</p>
+            <p>Please coordinate pick up with CONTACT NAME</p>
+            </div>
+        </div>
+      )}
     </>
   );
 }
