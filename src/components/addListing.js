@@ -1,6 +1,7 @@
 import React,{ useState } from 'react';
 import { getDatabase, ref, push as firebasePush } from 'firebase/database';
-import { Footer } from './footer.js';
+import { getDownloadURL, uploadBytes, getStorage, ref as storageRef } from 'firebase/storage';
+
 
 function AddListing(props) {
 
@@ -11,25 +12,20 @@ function AddListing(props) {
     const [currQuant, setCurrQuant] = useState("");
     const [currLocation, setCurrLocation] = useState("");
     const [currCategory, setCurrCat] = useState("");
-    //const [currImage, setCurrImage] = useState(null);
+    const [currContact, setCurrContact] = useState("");
     
     // Write data into Firebase
-    function writeData(path, name, descr, quant, location, category) { //imgURL 
-        let dataPath = "";
-        if(path === "claimed") {
-            dataPath = "claimed/";
-        }
-        else {
-            dataPath = "active/";
-        }
+    function writeData(path, name, descr, quant, location, category, contact) {  
+        let dataPath = "active/";
         const db = getDatabase();
+
         firebasePush(ref(db, dataPath), {
             name: name, 
             description: descr,
             quantity: quant, 
             location: location, 
-            category: category
-            //img: imgURL //-- ADD IN LATER
+            category: category,
+            contact: contact
         })
         .then(() => console.log("data saved successfully!"))
         .catch(err => console.log(err)) }; 
@@ -65,39 +61,46 @@ function AddListing(props) {
     const catHandleClick = (event) => {
         const cat = event.target.value;
         setCurrCat(cat);
-      }
+    }
 
-    // Image
-    // const imgHandleClick = (event) => {
-    //     const img = event.target.value;
-    //     setCurrImage(img);
-    // }
+    // Contact
+    const contactHandleClick = (event) => {
+        const contact = event.target.value;
+        setCurrContact(contact);
+    }
+
 
     // --------ADD FIREBASE DATA---------- //
     const addData = () => {
-        writeData("active", currName, currDescr, currQuant, currLocation, currCategory)// currImage
+        const db = getDatabase();
+        const storage = getStorage();
+
+        writeData("active", currName, currDescr, currQuant, currLocation, currCategory, currContact)
         setCurrName("");
         setCurrDescr("");
         setCurrQuant("");
         setCurrLocation("");
         setCurrCat("");
+        setCurrContact("");
         setIsYes(false);
-        // setCurrImage(null);
     }; 
 
     const addDataAnother = () => {
-        writeData("active", currName, currDescr, currQuant, currLocation, currCategory)// currImage
+        const db = getDatabase();
+        const storage = getStorage();
+        
+        writeData("active", currName, currDescr, currQuant, currLocation, currCategory, currContact)
         setCurrName("");
         setCurrDescr("");
         setCurrQuant("");
         setCurrLocation("");
         setCurrCat("");
+        setCurrContact("");
         setIsYes(true);
         document.getElementById("meatDairy-category").checked=false
         document.getElementById("beverage-category").checked=false
         document.getElementById("produce-category").checked=false
         document.getElementById("nonperish-category").checked=false
-        // setCurrImage(null);
     }; 
 
     return (
@@ -172,9 +175,13 @@ function AddListing(props) {
                             </div>
                         </div> 
 
-                        {/* Image  input -- DOESNT WORK WILL FIND FIGURE OUT LATER */}
-                        {/* <input type="file" id="photo" />
-                        <button id="upload" onclick={imgHandleClick}>Upload Image</button> */}
+                        {/* Contact input */}
+                        <div className="contact-input"> 
+                            <label for="contact" className="input-labels" id="label-contact">
+                                Contact Information for Pickup
+                            </label>
+                            <input type="text" placeholder="000-000-0000" value={currContact} onChange={contactHandleClick} />
+                        </div> 
 
                         {/* Submit button */}
                         <button class="btn btn-success filter-btn" id="new-item-submit" onClick={addData}>Submit</button>
@@ -191,12 +198,6 @@ function AddListing(props) {
                 </main>
 
             </div>
-
-            <div className="food-footer"></div>
-
-                <footer>
-                    <Footer></Footer>
-                </footer>
         </div>
     )
 }

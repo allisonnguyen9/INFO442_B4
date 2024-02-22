@@ -22,10 +22,6 @@ function Homepage (props) {
           </button>
         </div>
       </main>
-      <div className="food-footer"></div>
-      <footer>
-        <Footer></Footer>
-      </footer>
     </div>
   );
 }

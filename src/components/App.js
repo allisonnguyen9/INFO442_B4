@@ -10,7 +10,8 @@ import { AddListing } from './addListing.js';
 import { Navbar } from './NavBar';
 import { Login } from './Login';
 import { SignUp } from './Signup';
-import Claim from './Claim';
+import { Claim } from './Claim';
+import { Footer } from './footer.js';
 
 function App(props) {
     return (
@@ -31,6 +32,12 @@ function App(props) {
           <Route path="/claim" element={<Claim />} />
           <Route path="*" element={<Navigate to="/home" />}/>
         </Routes>
+
+        <div className="food-footer"></div>
+        <footer>
+          <Footer></Footer>
+        </footer>
+
       </div>
          
     );
