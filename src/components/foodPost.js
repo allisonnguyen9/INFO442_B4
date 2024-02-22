@@ -1,11 +1,13 @@
 import React,{ useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, set as firebaseSet, remove } from 'firebase/database';
-import Notification from './Notification.js';
+// import Notification from './Notification.js';
 import { getAuth } from "firebase/auth";
+
 
 function ItemCard(props) {
   // States
   const[showNotification, setShowNotification] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Current user Info
   let userEmail = "";
@@ -24,9 +26,16 @@ function ItemCard(props) {
 
   // Claiming handler
   const handleClaimClick = () => {
-    props.onClaimClick(foodObj.name, foodObj.description, foodObj.quantity, foodObj.location, foodObj.category, foodObj.contact, foodObj.firebasekey, userEmail)
     setShowNotification(true);
 };
+
+  // Pop up handle
+  const handleNotificationClick = () => {
+    setIsVisible(true); }
+
+  const handleDontConfirm = () => {
+    setShowNotification(false)
+  }
 
   return (
     <div className="d-flex col col-md-5 col-xl-3">
@@ -40,15 +49,34 @@ function ItemCard(props) {
               <h2 className="card-title">{foodObj.name}</h2>
               <h3 className="text-muted">{foodObj.description}</h3>
               <p className="card-text">{foodObj.quantity} | {foodObj.location}</p>
-              <button onClick={handleClaimClick}
-              // onClick={() => 
-              //   props.onClaimClick(foodObj.name, foodObj.description, foodObj.quantity, foodObj.location, foodObj.category, foodObj.contact, foodObj.firebasekey)}
-              className="btn btn-dark blue-btn">Claim It!</button>
+              <button onClick={handleClaimClick} className="btn btn-dark blue-btn">Claim It!</button>
+
+              {showNotification == true ?
+                <div className="notification-overlay" > 
+                  <div className="notification">
+                    <p>Item claimed successfully!</p>
+                    <p>Please coordinate pick up with {foodObj.contact}</p>
+                  </div>
+                  <button className='btn btn-dark blue-btn' onClick={handleNotificationClick}>
+                    {isVisible == true ? 
+                      props.onClaimClick(foodObj.name, foodObj.description, foodObj.quantity, foodObj.location, foodObj.category, foodObj.contact, foodObj.firebasekey, userEmail) 
+                      :
+                      <p></p>
+                    }
+                    Confirm
+                  </button>
+                  <button className='btn btn-dark blue-btn' onClick={handleDontConfirm}>
+                    Nvm
+                  </button>
+                </div> 
+              :
+              <p></p>
+              }
+              
             </div>
           </div>
         </div>
       </div>
-      {showNotification && <Notification contactNum={foodObj.contact}/>}
     </div>
   );
 }
@@ -108,7 +136,7 @@ function ItemList(props) {
       {data.length > 0 ? 
         (<div className="row">
               {data.map((item) => (
-                  <ItemCard foodData={item} onClaimClick={handleClaimClick}/> 
+                  <ItemCard foodData={item} key={item.firebasekey} onClaimClick={handleClaimClick}/> 
           ))}
           </div>)
         : 
@@ -119,4 +147,3 @@ function ItemList(props) {
 }
 
 export default ItemList;
-

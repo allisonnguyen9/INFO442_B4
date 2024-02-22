@@ -5,16 +5,19 @@ function Notification(props) {
 
   const handleNotificationClick = () => {
     setIsVisible(false);
+
+    // props.handleClick();
   };
 
   return (
     <>
       {isVisible && (
-        <div className="notification-overlay" onClick={handleNotificationClick} > 
+        <div className="notification-overlay"> 
           <div className="notification">
             <p>Item claimed successfully!</p>
             <p>Please coordinate pick up with {props.contactNum}</p>
-            </div>
+          </div>
+            <button className='btn btn-dark blue-btn' onClick={handleNotificationClick}>Confirm</button>
         </div>
       )}
     </>
