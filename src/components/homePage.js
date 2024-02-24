@@ -19,9 +19,9 @@ function Homepage (props) {
     }
 
     const filteredItems = Array.isArray(props.foodData) ? props.foodData.filter((item) => {
-        const conditionMatch = !selectedCategory || selectedCategory === item.category;
+        const categoryMatch = !selectedCategory || selectedCategory === item.category;
   
-        return conditionMatch;
+        return categoryMatch;
       })
     : [];
 
