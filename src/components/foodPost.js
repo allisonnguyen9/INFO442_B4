@@ -1,6 +1,5 @@
 import React,{ useState, useEffect } from 'react';
 import { getDatabase, ref, onValue, set as firebaseSet, remove } from 'firebase/database';
-// import Notification from './Notification.js';
 import { getAuth } from "firebase/auth";
 
 
@@ -85,6 +84,31 @@ function ItemCard(props) {
 function ItemList(props) {
   // States
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]); 
+  const [selected, setSelected] = useState('');
+
+  // Change data after filter handler 
+  const handleFilterChange = (selectedValue) => {
+    if (selectedValue === '') {
+      setFilteredData(data);
+    } else {
+      const filtered = data.filter(item => item.category === selectedValue);
+      setFilteredData(filtered);
+    }
+  };
+
+  // Get filter category handler
+  function handleSelected(e) {
+    const selectedValue = e.target.value;
+    setSelected(selectedValue);
+    handleFilterChange(selectedValue);
+  }
+
+  // Clear filter handler
+  function clear() {
+    setSelected('');
+    handleFilterChange('');
+  }
 
   // Claiming handler
   const handleClaimClick = (name, description, quantity, location, category, contact, key, claimedBy) => {
@@ -122,8 +146,8 @@ function ItemList(props) {
 
     // Update state with the new data
       setData(allDataArr);
+      setFilteredData(allDataArr);
     });
-
 
     // Cleanup the listener when the component unmounts
     return () => {
@@ -133,12 +157,33 @@ function ItemList(props) {
 
     return ( 
     <div> 
-      {data.length > 0 ? 
+      
+      <div className="filter-category">
+        <label htmlFor="filtercategory">Filter Food Category</label>
+        <select
+          id="filtercategory"
+          name="filtercategory"
+          value={selected}
+          onChange={handleSelected}>
+          <option value="" disabled>
+            Select condition
+          </option>
+          <option value="Meat or Dairy">Meat or Dairy</option>
+          <option value="Beverage">Beverage </option>
+          <option value="Produce">Produce</option>
+          <option value="Non-perishable">Non-perishable (canned, boxed, dried fruit)</option>
+        </select>
+        <button className="filter-button" onClick={ clear }>
+          Clear Filters
+        </button>
+      </div>
+
+      {filteredData.length > 0 ? 
         (<div className="row">
-              {data.map((item) => (
-                  <ItemCard foodData={item} key={item.firebasekey} onClaimClick={handleClaimClick}/> 
+          {filteredData.map((item) => (
+            <ItemCard foodData={item} key={item.firebasekey} onClaimClick={handleClaimClick}/> 
           ))}
-          </div>)
+        </div>)
         : 
         <p> There are no items available! </p>
       }
