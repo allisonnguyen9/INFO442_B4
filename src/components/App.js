@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { Route, Routes, Navigate } from "react-router-dom";
 import Homepage from './homePage.js';
+import ResourcesPage from './resourcesPage.js';
 
 import './index.css';
 
@@ -22,6 +23,7 @@ function App(props) {
         <Navbar />
         {/* <Homepage />  */}
         {/* <AddListing /> */}
+        {/* <ResourcesPage /> */}
 
       {/* For routing  */}
         <Routes> 
@@ -30,6 +32,7 @@ function App(props) {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<SignUp />} />
           <Route path="/claim" element={<Claim />} />
+          <Route path="resources" element={<ResourcesPage />}/>
           <Route path="*" element={<Navigate to="/home" />}/>
         </Routes>
 

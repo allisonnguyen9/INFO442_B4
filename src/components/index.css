@@ -415,6 +415,37 @@ footer a:hover, footer a:focus {
     margin-right: auto;
 }
 
+/*******Resources Page**********/
+
+.page-title {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 20px;
+}
+
+.resources-page {
+    height: 100vh; 
+    display: flex;
+}
+
+.video-container {
+    margin-right: 20px; 
+    flex: 1;
+    margin-top: 60px;
+    margin-left: 50px
+}
+
+.content {
+    width: 50%; 
+    font-size: 25px;
+    margin-top: 54px;
+    margin-right: 90px; 
+}
+
+
+
+
+
 /*******Media Queries**********/
 
 @media (min-width: 450px) {
