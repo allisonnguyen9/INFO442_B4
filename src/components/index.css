@@ -419,8 +419,9 @@ footer a:hover, footer a:focus {
 
 .page-title {
     text-align: center;
-    font-size: 25px;
-    margin-top: 20px;
+    font-size: 30px;
+    margin-top: 40px;
+    font-weight: bold;
 }
 
 .resources-page {
@@ -431,19 +432,95 @@ footer a:hover, footer a:focus {
 .video-container {
     margin-right: 20px; 
     flex: 1;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-left: 50px
 }
 
 .content {
     width: 50%; 
-    font-size: 25px;
-    margin-top: 54px;
-    margin-right: 90px; 
+    font-size: 22px;
+    margin-top: 25px;
+    margin-right: 90px;
+    color: black;
+}
+
+.card1 {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 50px;
+    height: 430px;
+    background-color: whitesmoke;
+    margin-top: 30px;
 }
 
 
+.card2 {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 50px;
+    height: 405px;
+    background-color: whitesmoke;
+    margin-top: 30px;
+}
 
+.feature {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-right: 10px; /* Adjust spacing between features */
+    height: 400px;
+    color: black;
+}
+
+.feature:last-child {
+    margin-right: 0px; /* Remove margin from the last feature */
+}
+
+.feature h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.feature p {
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+
+.card3 {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin: 50px;
+    height: 350px;
+    background-color: whitesmoke;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.tips-list {
+    color: black;
+    list-style-type: none;
+    padding-left: 0;
+    font-size: 22px
+}
+
+.tips-list li {
+    margin-bottom: 15px;
+}
+
+.image-section img {
+    margin-left: 300px;
+    width: 470px;
+    height: 300px;
+}
 
 
 /*******Media Queries**********/
