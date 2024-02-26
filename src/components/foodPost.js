@@ -134,7 +134,7 @@ function ItemList(props) {
 
     // Listen for changes in the data
     const unsubscribe = onValue(foodRef, function(snapshot) {
-      const allDataObj = snapshot.val();
+      const allDataObj = snapshot.val()??{};
 
     // Data w keys
       const keyArray = Object.keys(allDataObj);
