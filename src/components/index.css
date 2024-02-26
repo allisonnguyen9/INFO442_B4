@@ -472,13 +472,13 @@ footer a:hover, footer a:focus {
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    margin-right: 10px; /* Adjust spacing between features */
+    margin-right: 10px;
     height: 400px;
     color: black;
 }
 
 .feature:last-child {
-    margin-right: 0px; /* Remove margin from the last feature */
+    margin-right: 0px;
 }
 
 .feature h3 {

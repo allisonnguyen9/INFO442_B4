@@ -17,7 +17,7 @@ export default function ResourcesPage(props) {
             </div>
 
             {/* Second Card */}
-            <h2 className="page-title">Main Website Features</h2>
+            <h2 className="page-title">Our Main MVP Features</h2>
             <div className="card2">
                 <section className="resources-page">
                     <div className="feature">
