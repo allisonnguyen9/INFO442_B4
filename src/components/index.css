@@ -432,14 +432,14 @@ footer a:hover, footer a:focus {
 .video-container {
     margin-right: 20px; 
     flex: 1;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-left: 50px
 }
 
 .content {
     width: 50%; 
-    font-size: 22px;
-    margin-top: 25px;
+    font-size: 23px;
+    margin-top: 15px;
     margin-right: 90px;
     color: black;
 }
@@ -450,7 +450,7 @@ footer a:hover, footer a:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 50px;
-    height: 430px;
+    height: 400px;
     background-color: whitesmoke;
     margin-top: 30px;
 }
@@ -462,7 +462,7 @@ footer a:hover, footer a:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 50px;
-    height: 405px;
+    height: 440px;
     background-color: whitesmoke;
     margin-top: 30px;
 }
@@ -482,13 +482,13 @@ footer a:hover, footer a:focus {
 }
 
 .feature h3 {
-    font-size: 22px;
+    font-size: 23px;
     margin-bottom: 10px;
     font-weight: bold;
 }
 
 .feature p {
-    font-size: 17px;
+    font-size: 19px;
     margin-top: 20px;
 }
 
@@ -499,7 +499,7 @@ footer a:hover, footer a:focus {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin: 50px;
-    height: 350px;
+    height: 330px;
     background-color: whitesmoke;
     margin-top: 30px;
     margin-bottom: 10px;
@@ -509,17 +509,18 @@ footer a:hover, footer a:focus {
     color: black;
     list-style-type: none;
     padding-left: 0;
-    font-size: 22px
+    font-size: 22px;
 }
 
 .tips-list li {
     margin-bottom: 15px;
+    line-height: 40px;
 }
 
 .image-section img {
-    margin-left: 300px;
+    margin-left: 150px;
     width: 470px;
-    height: 300px;
+    height: 270px;
 }
 
 
@@ -560,6 +561,7 @@ footer a:hover, footer a:focus {
     .card-body .row {
         margin-bottom: 40px;
     }
+    
 }
 
 /* 576 px - 767 px screens*/

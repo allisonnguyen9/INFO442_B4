@@ -3,7 +3,7 @@ import React from 'react';
 export default function ResourcesPage(props) {
     return (
         <div>
-             {/* First Card */}
+            {/* First Card */}
             <h2 className="page-title">Food Insecurity for College Campuses</h2>
             <div className="card1">
                 <section className="resources-page">
@@ -33,7 +33,7 @@ export default function ResourcesPage(props) {
                     <div className="feature">
                         <h3>Feature 3: Claim Notification</h3>
                         <img src="img/claim_it.png" alt="Claim it button" />
-                        <p>After choosing your item, user will be able to claim their item. Then confirm + notify them with the item that was claimed and their email address in the notification tab.</p>
+                        <p>After choosing your item, user will be able to claim their item. Then confirm + notify them with the item that was claimed along with their email address and phone number in the notification tab.</p>
                     </div>
                 </section>
             </div>
