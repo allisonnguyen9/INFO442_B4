@@ -9,6 +9,7 @@ import './index.css';
 
 import { AddListing } from './addListing.js';
 import { Navbar } from './NavBar';
+import AuthPage from './AuthPage';
 import { Login } from './Login';
 import { SignUp } from './Signup';
 import { Claim } from './Claim';
@@ -29,8 +30,8 @@ function App(props) {
         <Routes> 
           <Route path="home" element={<Homepage />}/> 
           <Route path="addListing" element={<AddListing />}/>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<SignUp />} />
+          <Route path="/auth" element={<AuthPage />} />
+
           <Route path="/claim" element={<Claim />} />
           <Route path="resources" element={<ResourcesPage />}/>
           <Route path="*" element={<Navigate to="/home" />}/>
@@ -47,4 +48,3 @@ function App(props) {
 }
 
 export default App;
-

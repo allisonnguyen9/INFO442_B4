@@ -1,6 +1,6 @@
 // src/SignUp.js
 import React, { useState } from 'react';
-import { app } from '../firebase'; // Ensure this path matches where your firebase.js is located
+import { app } from '../firebase';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 const SignUp = () => {

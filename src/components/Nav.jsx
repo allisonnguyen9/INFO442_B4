@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
-import { app } from '../firebase'; // Adjust the import path as needed
+import { app } from '../firebase';
 import { getAuth } from 'firebase/auth'
 
 import "../src/components/index.css";
