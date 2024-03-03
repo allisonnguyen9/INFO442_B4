@@ -42,7 +42,7 @@ function ItemCard(props) {
         <div className="card-body">
           <div className="row">
             <div className="col col-sm-auto col-xl-12">
-              <img src="img/salmon_fillets.jpg" className="card-img pb-3" alt="example" />
+              <img src={foodObj.image} className="card-img pb-3" alt={foodObj.name} />
             </div>
             <div className="col-sm">
               <h2 className="card-title">{foodObj.name}</h2>
@@ -58,7 +58,7 @@ function ItemCard(props) {
                   </div>
                   <button className='btn btn-dark blue-btn' onClick={handleNotificationClick}>
                     {isVisible == true ? 
-                      props.onClaimClick(foodObj.name, foodObj.description, foodObj.quantity, foodObj.location, foodObj.category, foodObj.contact, foodObj.firebasekey, userEmail) 
+                      props.onClaimClick(foodObj.name, foodObj.description, foodObj.quantity, foodObj.location, foodObj.category, foodObj.contact, foodObj.image, foodObj.firebasekey, userEmail) 
                       :
                       <p></p>
                     }
@@ -111,10 +111,10 @@ function ItemList(props) {
   }
 
   // Claiming handler
-  const handleClaimClick = (name, description, quantity, location, category, contact, key, claimedBy) => {
+  const handleClaimClick = (name, description, quantity, location, category, contact, image, key, claimedBy) => {
 
     // Firebase manipulation
-    const newDataItem = { name, description, quantity, location, category, contact, claimedBy };
+    const newDataItem = { name, description, quantity, location, category, contact, claimedBy, image };
     const db = getDatabase();
     let urlText = encodeURIComponent(key);
     const foodRef = ref(db, `claimed/${urlText}`);

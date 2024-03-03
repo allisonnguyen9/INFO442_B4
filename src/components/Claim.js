@@ -1,5 +1,6 @@
 import React,{ useState, useEffect }  from 'react';
 import { getDatabase, ref, onValue, set as firebaseSet, remove } from 'firebase/database';
+import { getAuth } from "firebase/auth";
 
 
 function ItemCard(props) {
@@ -13,7 +14,7 @@ function ItemCard(props) {
             <h2 className="card-title"> Claimed by {foodObj.claimedBy} </h2>
             <div className="col col-sm-auto col-xl-12">
               {/* UPDATE IMAGE AFTER UPLOAD IMPLEMENTED */}
-              <img src="img/salmon_fillets.jpg" className="card-img pb-3" alt="example" />
+              <img src={foodObj.image} className="card-img pb-3" alt="example" />
             </div>
             <div className="col-sm">
               <h2 className="card-title">{foodObj.name}</h2>
@@ -30,6 +31,19 @@ function ItemCard(props) {
 function Claim (props) {
   // States
   const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]); 
+
+  // Current user Info
+  let userEmail = " ";
+  const auth = getAuth();
+  const user = auth.currentUser;
+  if(user) {
+      userEmail = user.email;
+    }
+
+  // Filter by email 
+  // const filtered = data.filter(item => item.claimedBy === userEmail);
+  // setFilteredData(filtered);
 
   // ---------FIREBASE----------//
   useEffect(() => {
@@ -38,7 +52,7 @@ function Claim (props) {
 
     // Listen for changes in the data
     const unsubscribe = onValue(foodRef, function(snapshot) {
-      const allDataObj = snapshot.val();
+      const allDataObj = snapshot.val()??{};
 
     // Data w keys
       const keyArray = Object.keys(allDataObj);
@@ -49,9 +63,10 @@ function Claim (props) {
       });
 
     // Update state with the new data
-      setData(allDataArr);
+    const filtered = allDataArr.filter(item => item.claimedBy === userEmail);
+    setData(allDataArr);
+    setFilteredData(filtered);
     });
-
 
     // Cleanup the listener when the component unmounts
     return () => {
@@ -59,18 +74,26 @@ function Claim (props) {
     };
   }, []);
 
+  let returnText = "";
+  if(userEmail == "Uknown User") {
+    returnText = "You are not logged in!";
+  }
+  else {
+    returnText = "You have not claimed any items yet!";
+  }
+
     return ( 
     <div> 
-      {data.length > 0 ? 
+      {filteredData.length > 0 ? 
         (<div className="row">
-              {data.map((item) => (
+              {filteredData.map((item) => (
                   <ItemCard foodData={item}/> 
           ))}
           </div>)
         : 
-        <p> There are no items available! </p>
-      }
-    </div>
+        returnText
+      } 
+      </div>
     );
 }
 

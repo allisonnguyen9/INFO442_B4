@@ -1,7 +1,6 @@
 import React,{ useState } from 'react';
 import { getDatabase, ref, push as firebasePush } from 'firebase/database';
-import { getDownloadURL, uploadBytes, getStorage, ref as storageRef } from 'firebase/storage';
-
+import { getDownloadURL, uploadBytes, getStorage, ref as sRef } from 'firebase/storage';
 
 function AddListing(props) {
 
@@ -13,22 +12,26 @@ function AddListing(props) {
     const [currLocation, setCurrLocation] = useState("");
     const [currCategory, setCurrCat] = useState("");
     const [currContact, setCurrContact] = useState("");
-    
-    // Write data into Firebase
-    function writeData(path, name, descr, quant, location, category, contact) {  
+    const [currImage, setCurrImage] = useState(null);
+
+    function writeData(name, descr, quant, location, category, contact, img) {  
         let dataPath = "active/";
         const db = getDatabase();
 
         firebasePush(ref(db, dataPath), {
-            name: name, 
-            description: descr,
-            quantity: quant, 
-            location: location, 
-            category: category,
-            contact: contact
-        })
-        .then(() => console.log("data saved successfully!"))
-        .catch(err => console.log(err)) }; 
+                    name: name, 
+                    description: descr,
+                    quantity: quant, 
+                    location: location, 
+                    category: category,
+                    contact: contact,
+                    image: img
+                })
+                .then(() => console.log("data saved successfully!"))
+                .catch(err => console.log(err))
+    };
+
+
 
     //  ---------EVENT HANDLERS------------ //
 
@@ -69,33 +72,49 @@ function AddListing(props) {
         setCurrContact(contact);
     }
 
+    // Image 
+    const imageHandleClick = (event) => {
+        const img = event.target.files[0];
+        setCurrImage(img);
+    };
+
 
     // --------ADD FIREBASE DATA---------- //
-    const addData = () => {
-        const db = getDatabase();
-        const storage = getStorage();
+    const addData = async (e) => {
+        e.preventDefault();
 
-        writeData("active", currName, currDescr, currQuant, currLocation, currCategory, currContact)
+        const storage = getStorage();
+        const imageRef = sRef(storage, 'images/' + currName);
+        await uploadBytes(imageRef, currImage);
+        const imageUrl = await getDownloadURL(imageRef);
+
+        writeData(currName, currDescr, currQuant, currLocation, currCategory, currContact, imageUrl)
         setCurrName("");
         setCurrDescr("");
         setCurrQuant("");
         setCurrLocation("");
         setCurrCat("");
         setCurrContact("");
+        setCurrImage(null);
         setIsYes(false);
     }; 
 
-    const addDataAnother = () => {
-        const db = getDatabase();
+    const addDataAnother = async (e) => {
+        e.preventDefault();
+
         const storage = getStorage();
-        
-        writeData("active", currName, currDescr, currQuant, currLocation, currCategory, currContact)
+        const imageRef = sRef(storage, 'images/' + currName);
+        await uploadBytes(imageRef, currImage);
+        const imageUrl = await getDownloadURL(imageRef);
+
+        writeData(currName, currDescr, currQuant, currLocation, currCategory, currContact, imageUrl)
         setCurrName("");
         setCurrDescr("");
         setCurrQuant("");
         setCurrLocation("");
         setCurrCat("");
         setCurrContact("");
+        setCurrImage(null);
         setIsYes(true);
         document.getElementById("meatDairy-category").checked=false
         document.getElementById("beverage-category").checked=false
@@ -131,11 +150,11 @@ function AddListing(props) {
                 {isYes ? 
                 (
                     <div class="form-control" id="input-container">
-
+                        <p className="input-labels"> (* symbol indicates required)</p> 
                         {/* Food input */}
                         <div class="name-input"> 
                             <label for="name" className="input-labels" id="label-name">
-                                Food Name
+                                *Food Name
                             </label>
                             <input type="text" placeholder="Chips" value={currName} onChange={nameHandleClick}/>
                         </div>
@@ -159,14 +178,14 @@ function AddListing(props) {
                         {/* Location input */}
                         <div class="location-input"> 
                             <label for="quantity" className="input-labels" id="label-quantity">
-                                Zip Code
+                                *Zip Code
                             </label>
                             <input type="text" placeholder="98105" value={currLocation} onChange={locHandleClick} />
                         </div> 
 
                         {/* Category input */}
                         <div className="input-labels"> 
-                            <label for="category">Category (select one category that item fits best)</label>
+                            <label for="category">*Category (select one category that item fits best)</label>
                             <div className="input-labels"> 
                                 <input type="radio" name="category" value="Meat or Dairy" className="categories" id="meatDairy-category" onChange={catHandleClick} /> Meat or Dairy
                                 <input type="radio" name="category" value="Beverage" className="categories" id="beverage-category" onChange={catHandleClick} /> Beverage
@@ -178,10 +197,18 @@ function AddListing(props) {
                         {/* Contact input */}
                         <div className="contact-input"> 
                             <label for="contact" className="input-labels" id="label-contact">
-                                Contact Information for Pickup
+                                *Contact Information for Pickup
                             </label>
                             <input type="text" placeholder="000-000-0000" value={currContact} onChange={contactHandleClick} />
                         </div> 
+
+                        {/* Image input */}
+                        <div className="image-input">
+                            <label htmlFor="image" className="input-labels" id="label-image">
+                                *Upload Image
+                            </label>
+                            <input type="file" id="image" onChange={imageHandleClick} />
+                        </div>
 
                         {/* Submit button */}
                         <button class="btn btn-success filter-btn" id="new-item-submit" onClick={addData}>Submit</button>
@@ -203,3 +230,4 @@ function AddListing(props) {
 }
 
 export {AddListing};
+
