@@ -10,3 +10,7 @@ Snack Swap is a digital platform built with (HTML, CSS, JavaScript, React) that 
 * Add Listing: Users will be able to easily add new food listings through a user-friendly survey.
 * Filter Option: Users can easily navigate through different categories such as Meat or Dairy, Beverages, Produce, and Non-perishable items (canned, boxed, dried fruit) which simplifies the selection process for all users.
 * User Login + Claim Item Notification: Users will be able to claim their items and receive a notification containing the details of the claimed item along with their contact information.
+
+## References
+
+Goal 2: Zero Hunger - United Nations Sustainable Development.” United Nations, United Nations, www.un.org/sustainabledevelopment/hunger/. Accessed 3 Mar. 2024.
