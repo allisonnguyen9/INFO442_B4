@@ -424,9 +424,11 @@ footer a:hover, footer a:focus {
     font-weight: bold;
 }
 
+/* change */
 .resources-page {
-    height: 100vh; 
     display: flex;
+    flex-wrap: wrap; 
+    justify-content: space-around; 
 }
 
 .video-container {
@@ -437,34 +439,23 @@ footer a:hover, footer a:focus {
 }
 
 .content {
-    width: 50%; 
+    flex: 1;
     font-size: 23px;
     margin-top: 15px;
     margin-right: 90px;
     color: black;
 }
 
-.card1 {
+/* REPLACED WITH */
+.resource-card {
+    flex: 0 0 calc(33.33% - 40px); 
+    margin: 20px;
+    padding: 20px; 
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 50px;
-    height: 400px;
     background-color: whitesmoke;
-    margin-top: 30px;
-}
-
-
-.card2 {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 50px;
-    height: 440px;
-    background-color: whitesmoke;
-    margin-top: 30px;
+    height: 100%; 
 }
 
 .feature {
@@ -473,8 +464,9 @@ footer a:hover, footer a:focus {
     border: 1px solid #ccc;
     border-radius: 8px;
     margin-right: 10px;
-    height: 400px;
+    height: auto;
     color: black;
+    word-wrap: break-word;
 }
 
 .feature:last-child {
@@ -492,19 +484,6 @@ footer a:hover, footer a:focus {
     margin-top: 20px;
 }
 
-
-.card3 {
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 50px;
-    height: 330px;
-    background-color: whitesmoke;
-    margin-top: 30px;
-    margin-bottom: 10px;
-}
-
 .tips-list {
     color: black;
     list-style-type: none;
@@ -517,10 +496,13 @@ footer a:hover, footer a:focus {
     line-height: 40px;
 }
 
+/* CHANGE  */
 .image-section img {
+    max-width: 100%; 
+    max-height: 100%;
+    width: auto; 
+    height: auto; 
     margin-left: 150px;
-    width: 470px;
-    height: 270px;
 }
 
 
@@ -536,7 +518,6 @@ footer a:hover, footer a:focus {
         font-size: 0.5rem; 
         margin-bottom: 10px; 
     }
-
 
     .card-img {
         width: 250px;
@@ -560,6 +541,15 @@ footer a:hover, footer a:focus {
     
     .card-body .row {
         margin-bottom: 40px;
+    }
+
+    .resource-card {
+        flex-basis: calc(100% - 40px); 
+    }
+
+    .video-box {
+        height: 300px;
+        width: 400px;
     }
     
 }
@@ -600,12 +590,20 @@ footer a:hover, footer a:focus {
     .card-body .row {
         margin-bottom: 70px;
     }
+
+    .resource-card {
+        flex-basis: calc(50% - 40px); 
+    }
+
+    .video-box {
+        height: 315px;
+        width: 500px;
+    }
 }
 
 
 /*Screens 768px - 991px*/
 @media (min-width: 768px) {
-    
     .card {
         height: 500px;
         width: 100%;
@@ -625,6 +623,11 @@ footer a:hover, footer a:focus {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+    }
+
+    .video-box {
+        height: 315px;
+        width: 600px;
     }
 }
 
@@ -653,7 +656,6 @@ footer a:hover, footer a:focus {
     .nav-contents {
         display: block;
     }
-
 } 
 
 
@@ -681,5 +683,10 @@ footer a:hover, footer a:focus {
 
     .nav-contents {
         display: block;
+    }
+
+    .video-box {
+        height: 350px;
+        width: 700px;
     }
 }

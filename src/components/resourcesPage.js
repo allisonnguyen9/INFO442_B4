@@ -5,10 +5,11 @@ export default function ResourcesPage(props) {
         <div>
             {/* First Card */}
             <h2 className="page-title">Food Insecurity for College Campuses</h2>
-            <div className="card1">
+            {/* <div className="card1"> */}
+            <div className="resource-card">
                 <section className="resources-page">
                     <div className="video-container">
-                        <iframe width="600" height="315" src="https://www.youtube.com/embed/V-KjCL5FiUU?si=TGphCxRZszEqjtFD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                        <iframe className="video-box"  src="https://www.youtube.com/embed/V-KjCL5FiUU?si=TGphCxRZszEqjtFD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <div className="content">
                         <p>This video goes over food insecurity in college campuses. It is a prevalent issue stemming from various challenges within the college ecosystem. There are many factors that contribute to food insecurity among college students, some of which can be attributed to financial constraints and a lack of convenience for accessible and affordable food choices.</p>
@@ -18,7 +19,8 @@ export default function ResourcesPage(props) {
 
             {/* Second Card */}
             <h2 className="page-title">Our Main MVP Features</h2>
-            <div className="card2">
+            {/* <div className="card2"> */}
+            <div className="resource-card">
                 <section className="resources-page">
                     <div className="feature">
                         <h3>Feature 1: Add New Food Listing </h3>
@@ -40,7 +42,8 @@ export default function ResourcesPage(props) {
 
             {/* Last Card */}
             <h2 className="page-title">Tips for Minimizing Waste and Maximizing Nutrition</h2>
-            <div className="card3">
+            {/* <div className="card3"> */}
+            <div className="resource-card">
                 <section className="resources-page">
                     <ol className="tips-list">
                         <li>1) Plan your meals ahead of time to only buy what you need.</li>
