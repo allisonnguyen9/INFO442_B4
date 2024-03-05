@@ -10,8 +10,8 @@ const Logout = () => {
      const auth = getAuth();
      await signOut(auth);
      console.log('User logged out successfully');
-     // Redirect to the login page or home page after logout
-     navigate('/login');
+
+     navigate('/home');
    } catch (error) {
      console.error('Logout failed:', error);
    }
