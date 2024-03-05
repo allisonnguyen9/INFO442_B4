@@ -1,12 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Login } from './Login';
 import { SignUp } from './Signup';
 
 const AuthPage = () => {
+    const [showSignUp] = useState(false);
+
     return (
         <div>
             <Login />
-            <SignUp />
+            {showSignUp && <SignUp />}
         </div>
     );
 };

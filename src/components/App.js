@@ -1,6 +1,6 @@
 //import logo from './logo.svg';
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Route, Routes, Navigate } from "react-router-dom";
 import Homepage from './homePage.js';
 import ResourcesPage from './resourcesPage.js';
@@ -31,7 +31,8 @@ function App(props) {
           <Route path="home" element={<Homepage />}/> 
           <Route path="addListing" element={<AddListing />}/>
           <Route path="/auth" element={<AuthPage />} />
-
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<SignUp />} />
           <Route path="/claim" element={<Claim />} />
           <Route path="resources" element={<ResourcesPage />}/>
           <Route path="*" element={<Navigate to="/home" />}/>

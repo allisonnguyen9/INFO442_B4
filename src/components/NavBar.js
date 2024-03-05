@@ -1,16 +1,19 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import ClaimIcon from '../data/icons/basket.png'; 
+import ClaimIcon from '../data/icons/basket.png';
 
 function Navbar (props) {
+    
+
+
     return (
         <nav>
             <div className="navbar">
                     <ul className="nav-container">
                         <li><Link to="/home" className="nav-contents">Home</Link></li>
-                        <li><Link to="/auth" className="nav-contents">Login</Link></li>
                         <li><Link to="/addListing" className='nav-contents'> Add Listing</Link></li>
                         <Link to="/resources" className="nav-contents">Resources</Link>
+                        <li><Link to="/auth" className="nav-contents">Login</Link></li>
                     </ul>
                 {/* <a><Link to="/claim" className="nav-claim">C</Link></a> */}
                 <Link to="/claim">
