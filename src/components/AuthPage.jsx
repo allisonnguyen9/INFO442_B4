@@ -12,9 +12,6 @@ const AuthPage = () => {
                 <Login />
                 {showSignUp && <SignUp />}
             </div>
-            <div className="logout-container">
-                <Logout />
-            </div>
         </div>
     );
 };

@@ -34,12 +34,12 @@ function Claim (props) {
   const [filteredData, setFilteredData] = useState([]); 
 
   // Current user Info
-  let userEmail = " ";
+  let userEmail = "";
   const auth = getAuth();
   const user = auth.currentUser;
   if(user) {
       userEmail = user.email;
-    }
+  }
 
   // Filter by email 
   // const filtered = data.filter(item => item.claimedBy === userEmail);
@@ -75,8 +75,8 @@ function Claim (props) {
   }, []);
 
   let returnText = "";
-  if(userEmail == "Uknown User") {
-    returnText = "You are not logged in!";
+  if(userEmail == "") {
+    returnText = "Log in to access this feature!";
   }
   else {
     returnText = "You have not claimed any items yet!";
@@ -87,7 +87,7 @@ function Claim (props) {
       {filteredData.length > 0 ? 
         (<div className="row">
               {filteredData.map((item) => (
-                  <ItemCard foodData={item}/> 
+                  <ItemCard key={item.firebasekey} foodData={item}/> 
           ))}
           </div>)
         : 

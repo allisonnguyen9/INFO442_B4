@@ -748,13 +748,12 @@ footer a:hover, footer a:focus {
     margin-top: 25px;
   }
 
-  .logout-container {
+  /* .logout-container {
     display: flex;
     margin-top: 5px;
     margin-right: 15px;
     justify-content: flex-end;
-
-  }
+  } */
 
   .logout-button {
     background-color: #48494B;
