@@ -55,8 +55,21 @@ function ItemCard(props) {
                   <div className="notification">
                     <p>Item claimed successfully!</p>
                     <p>Please coordinate pick up with {foodObj.contact}</p>
+                    <br></br>
+                    <button className='claim-button' onClick={handleNotificationClick}>
+                    {isVisible == true ? 
+                      props.onClaimClick(foodObj.name, foodObj.description, foodObj.quantity, foodObj.location, foodObj.category, foodObj.contact, foodObj.image, foodObj.firebasekey, userEmail) 
+                      :
+                      <p></p>
+                    }
+                    Confirm
+                  </button>
+                  <p></p>
+                  <button className='btn nevermind-button' onClick={handleDontConfirm}>
+                    Back
+                  </button>
                   </div>
-                  <button className='btn btn-dark blue-btn' onClick={handleNotificationClick}>
+                  {/* <button className='btn btn-dark blue-btn' onClick={handleNotificationClick}>
                     {isVisible == true ? 
                       props.onClaimClick(foodObj.name, foodObj.description, foodObj.quantity, foodObj.location, foodObj.category, foodObj.contact, foodObj.image, foodObj.firebasekey, userEmail) 
                       :
@@ -65,8 +78,8 @@ function ItemCard(props) {
                     Confirm
                   </button>
                   <button className='btn btn-dark blue-btn' onClick={handleDontConfirm}>
-                    Nvm
-                  </button>
+                    Back
+                  </button> */}
                 </div> 
               :
               <p></p>
