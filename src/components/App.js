@@ -19,6 +19,7 @@ function App(props) {
     return (
       <div className="App">
         <header className="App-header">
+          <img src="../img/favicon.png" alt="Snack Swap Logo" className='header-logo'></img>
           <h1 className="App-title">SnackSwap</h1>
         </header>
         <Navbar />

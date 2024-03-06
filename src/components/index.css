@@ -12,10 +12,18 @@ header {
 
 .App-header {
     width: 100%;
-    padding: 20px 0;
+    padding: 15px 0;
     background-color: #957DAD; /* Or any other color you prefer */
     color: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional */
+    display: flex;
+  }
+
+  .header-logo  {
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 8px;
   }
   
   .App-title {
