@@ -1,5 +1,5 @@
 # Snack Swap MVP
-<<<<<<< Updated upstream
+
 ## INFO 442 Project - Group 4: Kyle Fukuda, Faith Lee, Allison Nguyen, Phuong Phan, Trisha Thonupunoori 
 
 ## About Snack Swap
@@ -23,6 +23,3 @@ Goal 2: Zero Hunger - United Nations Sustainable Development.” United Nations,
 <p> Our web application provides a platform for UW college students to upload and acquire food items that would otherwise go to waste.
 
 <p> Features include uploading foods, claiming foods, transaction satisfaction review and login capabilities. Website is coded using React/JS, HTML/CSS, and the backend is supported by Firebase.
-
-
->>>>>>> Stashed changes
