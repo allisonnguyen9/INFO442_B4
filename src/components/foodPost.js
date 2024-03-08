@@ -69,17 +69,6 @@ function ItemCard(props) {
                     Back
                   </button>
                   </div>
-                  {/* <button className='btn btn-dark blue-btn' onClick={handleNotificationClick}>
-                    {isVisible == true ? 
-                      props.onClaimClick(foodObj.name, foodObj.description, foodObj.quantity, foodObj.location, foodObj.category, foodObj.contact, foodObj.image, foodObj.firebasekey, userEmail) 
-                      :
-                      <p></p>
-                    }
-                    Confirm
-                  </button>
-                  <button className='btn btn-dark blue-btn' onClick={handleDontConfirm}>
-                    Back
-                  </button> */}
                 </div> 
               :
               <p></p>

@@ -32,7 +32,6 @@ function AddListing(props) {
     };
 
 
-
     //  ---------EVENT HANDLERS------------ //
 
     // Update states with new added food
@@ -115,11 +114,12 @@ function AddListing(props) {
         setCurrCat("");
         setCurrContact("");
         setCurrImage(null);
-        setIsYes(true);
+        // setIsYes(true);
         document.getElementById("meatDairy-category").checked=false
         document.getElementById("beverage-category").checked=false
         document.getElementById("produce-category").checked=false
         document.getElementById("nonperish-category").checked=false
+        document.getElementById("label-image").value= null;
     }; 
 
     return (
@@ -177,7 +177,7 @@ function AddListing(props) {
 
                         {/* Location input */}
                         <div class="location-input"> 
-                            <label for="quantity" className="input-labels" id="label-quantity">
+                            <label for="quantity" className="input-labels" id="label-location">
                                 *Zip Code
                             </label>
                             <input type="text" placeholder="98105" value={currLocation} onChange={locHandleClick} />

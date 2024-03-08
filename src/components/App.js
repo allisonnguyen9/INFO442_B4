@@ -23,9 +23,6 @@ function App(props) {
           <h1 className="App-title">SnackSwap</h1>
         </header>
         <Navbar />
-        {/* <Homepage />  */}
-        {/* <AddListing /> */}
-        {/* <ResourcesPage /> */}
 
       {/* For routing  */}
         <Routes> 

@@ -449,6 +449,7 @@ footer a:hover, footer a:focus {
     width: 100%;
     margin-left: auto;
     margin-right: auto;
+    /* position: fixed; */
 }
 
 /*******Resources Page**********/
