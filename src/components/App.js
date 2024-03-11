@@ -36,7 +36,7 @@ function App(props) {
           <Route path="*" element={<Navigate to="/home" />}/>
         </Routes>
 
-        <div className="food-footer"></div>
+        <div className="food-footer" alt="pile of food"></div>
         <footer>
           <Footer></Footer>
         </footer>

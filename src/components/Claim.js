@@ -1,5 +1,5 @@
 import React,{ useState, useEffect }  from 'react';
-import { getDatabase, ref, onValue, set as firebaseSet, remove } from 'firebase/database';
+import { getDatabase, ref, onValue } from 'firebase/database';
 import { getAuth } from "firebase/auth";
 
 
@@ -13,8 +13,7 @@ function ItemCard(props) {
           <div className="row">
             <h2 className="card-title"> Claimed by {foodObj.claimedBy} </h2>
             <div className="col col-sm-auto col-xl-12">
-              {/* UPDATE IMAGE AFTER UPLOAD IMPLEMENTED */}
-              <img src={foodObj.image} className="card-img pb-3" alt="example" />
+              <img src={foodObj.image} className="card-img pb-3" alt={foodObj.name} />
             </div>
             <div className="col-sm">
               <h2 className="card-title">{foodObj.name}</h2>
@@ -40,10 +39,6 @@ function Claim (props) {
   if(user) {
       userEmail = user.email;
   }
-
-  // Filter by email 
-  // const filtered = data.filter(item => item.claimedBy === userEmail);
-  // setFilteredData(filtered);
 
   // ---------FIREBASE----------//
   useEffect(() => {
@@ -75,7 +70,7 @@ function Claim (props) {
   }, []);
 
   let returnText = "";
-  if(userEmail == "") {
+  if(userEmail === "") {
     returnText = "Log in to access this feature!";
   }
   else {
